@@ -33,8 +33,16 @@
             else {
                 echo "<p style='color:gray'>¿Puedes comprarlo?: <p style='color:green'>Sí</p></p><hr>";
             }
-        } 
+        }
+        echo iva_calc(750,0.223);
     //Fin del frontend
+
+    //Funciones
+    function iva_calc($amount,$iva){
+        $calculate_iva = $amount*$iva;
+        $amount = round($amount+$calculate_iva,2);
+        return $amount;
+    }
     ?>
 </body>
 </html>
