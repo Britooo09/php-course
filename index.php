@@ -27,13 +27,13 @@
     echo "<h3>Tienes actualmente $".$credit." en tu cartera</h3><hr><hr>";
     foreach ($products as $key => $value) {
         $pFinal = iva_calc($value,$ivaRate);
-        echo "<p>Precio de ".$key.": $".$value." (IVA incluido).</p>";
+        echo "<h3 style='font-family:Playfair Display'>".$key."</h3><p>".$pFinal." (IVA incluido).</p>";
         //Pedazo de jugada me acabo de aventar
         if ($credit < $pFinal) {
-            echo "<p style='color:gray'>¿Puedes comprarlo?: <p style='color:red'>No</p></p><hr>";
+            echo "<p style='color:red'>Fondos insuficientes</p><hr>";
         }
             else {
-                echo "<p style='color:gray'>¿Puedes comprarlo?: <p style='color:green'>Sí</p></p><hr>";
+                echo "<p style='color:green'>Artículo disponible</div></p><hr>";
             }
         }
     //Fin del frontend
