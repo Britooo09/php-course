@@ -15,6 +15,7 @@
     //Designación de variables
     $name = "PHP Store";
     $credit = 1000;
+    $ivaRate = 0.0825;
     $products["PC"]=750;
     $products["Automóvil"]=15000;
     $products["iPhone"]=1000;
@@ -22,26 +23,26 @@
     //Fin de la designación
 
     //Comienza el frontend
-    echo "<h1>¡Bienvenido a ".$name."!</h1>";
-    echo "<h3>Tienes actualmente $".$credit." en tu cartera</h3>";
+    echo "<h1 style='text-align:center'>¡Bienvenido a ".$name."!</h1>";
+    echo "<h3>Tienes actualmente $".$credit." en tu cartera</h3><hr><hr>";
     foreach ($products as $key => $value) {
-        echo "<p>Precio de ".$key.": $".$value.".</p>";
+        $pFinal = iva_calc($value,$ivaRate);
+        echo "<p>Precio de ".$key.": $".$value." (IVA incluido).</p>";
         //Pedazo de jugada me acabo de aventar
-        if ($credit < $value) {
+        if ($credit < $pFinal) {
             echo "<p style='color:gray'>¿Puedes comprarlo?: <p style='color:red'>No</p></p><hr>";
         }
             else {
                 echo "<p style='color:gray'>¿Puedes comprarlo?: <p style='color:green'>Sí</p></p><hr>";
             }
         }
-        echo iva_calc(750,0.223);
     //Fin del frontend
 
     //Funciones
-    function iva_calc($amount,$iva){
-        $calculate_iva = $amount*$iva;
-        $amount = round($amount+$calculate_iva,2);
-        return $amount;
+    function iva_calc($amount,$ivaRate){
+        $calcular_iva = $amount*$ivaRate;
+        $amountIva = round($amount+$calcular_iva,2);
+        return $amountIva;
     }
     ?>
 </body>
