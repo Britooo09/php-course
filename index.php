@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Store</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Sans+Pro&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Source+Sans+Pro&display=swap');
         h1 { font-family: 'Playfair Display', serif; }
         body { font-family: 'Source Sans Pro', sans-serif; }
     </style>
@@ -23,10 +23,17 @@
 
     //Comienza el frontend
     echo "<h1>¡Bienvenido a ".$name."!</h1>";
-    echo "<h3>Tienes actualemente $".$credit." en tu cartera</h3>";
+    echo "<h3>Tienes actualmente $".$credit." en tu cartera</h3>";
     foreach ($products as $key => $value) {
         echo "<p>Precio de ".$key.": $".$value.".</p>";
-    }
+        //Pedazo de jugada me acabo de aventar
+        if ($credit < $value) {
+            echo "<p style='color:gray'>¿Puedes comprarlo?: <p style='color:red'>No</p></p><hr>";
+        }
+            else {
+                echo "<p style='color:gray'>¿Puedes comprarlo?: <p style='color:green'>Sí</p></p><hr>";
+            }
+        } 
     //Fin del frontend
     ?>
 </body>
