@@ -7,7 +7,10 @@
 </head>
 <body>
     <?php
-    echo "<h1>¡Bienvenido!</h1>";
+    $name = "PHP Store";
+    $credit = 1000;
+    echo "<h1>¡Bienvenido a ".$name."!</h1>";
+    echo "<h3>Tienes actualemente Bs.S ".$credit."en tu cartera</h3>";
     ?>
 </body>
 </html>
